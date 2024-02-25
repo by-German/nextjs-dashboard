@@ -2,6 +2,7 @@ import AcmeLogo from '@/app/ui/acme-logo';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import styles from '@/app/ui/home.module.css'
+import Image from 'next/image'; // Adding the desktop hero image
 
 export default function Page() {
   return (
@@ -27,7 +28,33 @@ export default function Page() {
           </Link>
         </div>
         <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
-          {/* Add Hero Images Here */}
+          {/*
+            The `Image` component is an extension of the HTML <img> tag, and comes with automatic image optimization, such as:
+            - Preventing layout shifts by specifying the image dimensions
+            - Resizing images to avoid shipping large images to small devices
+            - Lazy loading images to improve performance (by default)
+            - Serving images in moder formats (WebP and AVIF) when supported
+            
+            **IMPORTANT**: Image Optimization Source Images	Up to 1000 Images.
+            Once you exceed the limits: 
+            - New source images will fail to optimize and instead return a runtime error response with 402 status code.
+            - Previously optimized images have already been cached and will continue to work as expected, without error
+          */}
+          <Image
+            src="/hero-desktop.png"
+            width={1000}
+            height={760}
+            className="hidden md:block"
+            alt="Screenshots of the dashboard project showing desktop version"
+          />
+
+          <Image
+            src="/hero-mobile.png"
+            width={560}
+            height={620}
+            className="block md:hidden"
+            alt="Screenshot of the dashboard project showing mobile version"
+          />
         </div>
       </div>
     </main>
