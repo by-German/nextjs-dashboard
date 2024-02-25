@@ -1,5 +1,6 @@
 // import global styles
 import "./ui/global.css";
+import { inter } from "@/app/ui/fonts"
 
 export default function RootLayout({
   children,
@@ -8,7 +9,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={`${inter.className}`}>{children}</body>
     </html>
   );
 }
